@@ -1,0 +1,27 @@
+sudo: required
+services:
+  - docker
+
+after_success:
+  # Setelah Travis selesai melakukan testing, selanjutnya kita suruh Travis membuat image dan mengirimkannya
+  # ke Dockerhub (agar bisa ditarik oleh AWS Beanstalk)
+
+  - docker build -t senzdamsik/http-api ./src
+
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin # id= senzdamsik, pass: mu...
+  # Take those images and push them to docker hub
+  - docker push senzdamsik/http-api
+
+
+# deploy:
+#   provider: elasticbeanstalk
+#   region: ap-southeast-1
+#   app: U-Multi-Dockers
+#   env: UMultiDockers-env
+#   bucket_name: elasticbeanstalk-ap-southeast-1-511590767544
+#   bucket_path: U-Multi-Dockers
+#   on:
+#     branch: master
+#   access_key_id: $AWS_ACCESS_KEY
+#   secret_access_key: $AWS_SECRET_KEY

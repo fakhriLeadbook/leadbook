@@ -1,0 +1,14 @@
+version: "3"
+services:
+  api:                     
+    build:
+      dockerfile: Dockerfile
+      context: ./src
+    # volumes:
+    #   - /app/node_modules 
+    #   - ./server:/app
+    environment:         
+      - aws_access_key_id=AKIA3EXS4CG6DAKNNNF4
+      - aws_secret_access_key=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                 
+      - mongo_client=mongodb+srv://fakhri:leadbookmongopassword123@cluster0.bnnky.mongodb.net/leadbook_db?retryWrites=true&w=majority                
+                 
