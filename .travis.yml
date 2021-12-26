@@ -11,7 +11,7 @@ before_install:
 
     - docker build -t senzdamsik/http-api -f ./src/Dockerfile ./src
 
-    script:
+script:
     - docker run -e CI=true senzdamsik/http-api python -m pytest -v   
 
 after_success:
