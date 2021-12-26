@@ -4,9 +4,10 @@ services:
 
 before_install:
 # Di sini kita akan melakukan testing untuk Client. Kita bisa juga melakukan testing utk Worker, Server dll kalo mau
-
+    - gem install rake
     - docker build -t senzdamsik/http-api -f ./src/Dockerfile ./src
-# script:
+
+    # script:
 #     - docker run -e CI=true senzdamsik/http-api python app.py  
 
 after_success:
