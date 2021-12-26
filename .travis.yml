@@ -16,7 +16,7 @@ script:
 
 after_success:
   # Setelah Travis selesai melakukan testing, selanjutnya kita suruh Travis membuat image dan mengirimkannya
-  # ke Dockerhub (agar bisa ditarik oleh AWS Beanstalk).
+  # ke Dockerhub (agar bisa ditarik oleh AWS Beanstalk)
 
   - docker build -t senzdamsik/http-api ./src
 
