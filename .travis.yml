@@ -2,6 +2,13 @@ sudo: required
 services:
   - docker
 
+before_install:
+# Di sini kita akan melakukan testing untuk Client. Kita bisa juga melakukan testing utk Worker, Server dll kalo mau
+
+    - docker build -t senzdamsik/http-api -f ./src/Dockerfile ./app
+script:
+    - docker run -e CI=true senzdamsik/http-api python app.py  
+
 after_success:
   # Setelah Travis selesai melakukan testing, selanjutnya kita suruh Travis membuat image dan mengirimkannya
   # ke Dockerhub (agar bisa ditarik oleh AWS Beanstalk)
