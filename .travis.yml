@@ -25,15 +25,15 @@ after_success:
   - docker push senzdamsik/http-api
 
 
-  
-# deploy:
-#   provider: elasticbeanstalk
-#   region: ap-southeast-1
-#   app: U-Multi-Dockers
-#   env: UMultiDockers-env
-#   bucket_name: elasticbeanstalk-ap-southeast-1-511590767544
-#   bucket_path: U-Multi-Dockers
-#   on:
-#     branch: master
-#   access_key_id: $AWS_ACCESS_KEY
-#   secret_access_key: $AWS_SECRET_KEY
+
+deploy:
+  provider: elasticbeanstalk
+  region: ap-southeast-1
+  app: leadbook-app
+  env: leadbook-env
+  bucket_name: elasticbeanstalk-ap-southeast-1-766087270844
+  bucket_path: leadbook-app
+  on:
+    branch: main
+  access_key_id: $aws_access_key_id
+  secret_access_key: $aws_secret_access_key
