@@ -5,11 +5,5 @@
       "Name": "senzdamsik/http-api",
       "Update": "true"
     },
-    "Ports": [
-      {
-        "ContainerPort": "5000",
-        "HostPort": "5000"
-      }
-    ],
     "Entrypoint": "python app.py"
   }
