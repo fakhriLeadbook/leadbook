@@ -33,6 +33,7 @@ deploy:
   env: Leadbookapp5-env
   bucket_name: elasticbeanstalk-ap-southeast-1-766087270844
   bucket_path: leadbook-app
+  edge: true
   on:
     branch: main
   access_key_id: $aws_access_key_id
