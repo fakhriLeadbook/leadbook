@@ -8,10 +8,10 @@ language: python
 before_install:
 # Di sini kita akan melakukan testing untuk Client. Kita bisa juga melakukan testing utk Worker, Server dll kalo mau.
 
-    - docker build -t senzdamsik/http-api -f ./src/Dockerfile ./src
+  - docker build -t senzdamsik/http-api ./src
 
 script:
-    - docker run -e CI=true senzdamsik/http-api python -m pytest -v   
+  - docker run -e CI=true senzdamsik/http-api python -m pytest -v   
 
 after_success:
   # Setelah Travis selesai melakukan testing, selanjutnya kita suruh Travis membuat image dan mengirimkannya
