@@ -5,5 +5,5 @@
       "Name": "senzdamsik/http-api",
       "Update": "true"
     },
-    "Entrypoint": "python app.py"
+    "Command": "python app.py"
   }
