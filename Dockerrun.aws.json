@@ -1,6 +1,6 @@
 
   {
-    "AWSEBDockerrunVersion": "1",
+    "AWSEBDockerrunVersion": "2",
     "Image": {
       "Name": "senzdamsik/http-api",
       "Update": "true"
