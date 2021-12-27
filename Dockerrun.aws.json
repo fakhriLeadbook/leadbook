@@ -11,6 +11,5 @@
         "HostPort": "5000"
       }
     ],
-    "Entrypoint": "/app",
-    "Command": "python app.py"
+    "Entrypoint": "python app.py"
   }
