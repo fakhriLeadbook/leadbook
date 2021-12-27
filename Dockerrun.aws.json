@@ -1,19 +1,13 @@
-{
-    "AWSEBDockerrunVersion": 2,
-    "containerDefinitions": [
+
+  {
+    "AWSEBDockerrunVersion": "1",
+    "Image": {
+      "Name": "senzdamsik/http-api",
+      "Update": "true"
+    },
+    "Ports": [
       {
-        "name": "http-api",
-        "image": "senzdamsik/http-api",
-        "hostname": "http-api",
-        "essential": true,
-        "portMappings": [
-          {
-            "hostPort": 5000,
-            "containerPort": 5000
-          }
-        ],
-        "memory": 128
+        "ContainerPort": "5000"
       }
     ]
   }
-  
