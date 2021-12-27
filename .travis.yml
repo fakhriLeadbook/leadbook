@@ -36,5 +36,5 @@ deploy:
   edge: true
   on:
     branch: main
-  access_key_id: $aws_access_key_id
-  secret_access_key: $aws_secret_access_key
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
