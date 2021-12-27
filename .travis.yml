@@ -6,8 +6,7 @@ language: python
   
 
 before_install:
-# Di sini kita akan melakukan testing untuk Client. Kita bisa juga melakukan testing utk Worker, Server dll kalo mau
-    # - gem install rake
+# Di sini kita akan melakukan testing untuk Client. Kita bisa juga melakukan testing utk Worker, Server dll kalo mau.
 
     - docker build -t senzdamsik/http-api -f ./src/Dockerfile ./src
 
@@ -26,6 +25,7 @@ after_success:
   - docker push senzdamsik/http-api
 
 
+  
 # deploy:
 #   provider: elasticbeanstalk
 #   region: ap-southeast-1
