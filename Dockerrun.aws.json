@@ -1,9 +1,13 @@
 
   {
-    "AWSEBDockerrunVersion": "2",
-    "Image": {
-      "Name": "senzdamsik/http-api",
-      "Update": "true"
-    },
-    "Entrypoint": "python app.py"
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+      {
+      "name": "leadbook",
+        "image": "senzdamsik/http-api",
+        "essential": true,
+        "memory": 128,
+        "command": ["python","app.py"]
+      }
+    ]
   }
