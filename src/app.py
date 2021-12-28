@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "Leadbook Test 6"
+    return "Leadbook Test 10"
 
 
 @app.route('/insert', methods=['POST'])
