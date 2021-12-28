@@ -1,6 +1,6 @@
 import os
 
-class env_var(): 
+class env_var(): #Camel Case
 
     def __init__(self):
         self.aws_access_key_id = os.environ['aws_access_key_id'] 
