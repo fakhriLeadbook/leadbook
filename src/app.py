@@ -3,7 +3,7 @@ import pandas as pd
 import pymongo
 import boto3
 
-from env import env_var
+from env import EnvironmentVar
 
 
 app = Flask(__name__)
@@ -17,7 +17,7 @@ def index():
 @app.route('/insert', methods=['POST'])
 def inst():
 
-    env_ = env_var()
+    env_ = EnvironmentVar()
 
     s3 = boto3.resource('s3',
                         aws_access_key_id=env_.aws_access_key_id,
