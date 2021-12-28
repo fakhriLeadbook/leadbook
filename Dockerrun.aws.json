@@ -1,18 +1,19 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "api-server",
+      "image": "senzdamsik/http-api",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 5000
+        }
+      ]
+    }
+  ]
 
-  {
-    "AWSEBDockerrunVersion": 2,
-    "containerDefinitions": [
-      {
-      "name": "leadbook",
-        "image": "senzdamsik/http-api",
-        "essential": true,
-        "memory": 128,
-        "portMappings": [
-          {
-            "containerPort": 5000
-          }
-        ],
-        "command": ["python","app.py"]
-      }
-    ]
-  }
+
+}

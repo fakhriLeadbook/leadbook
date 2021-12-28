@@ -29,8 +29,8 @@ after_success:
 deploy:
   provider: elasticbeanstalk
   region: ap-southeast-1
-  app: leadbook-app-6
-  env: Leadbookapp6-env
+  app: leadbook-app-multi
+  env: Leadbookappmulti-env
   bucket_name: elasticbeanstalk-ap-southeast-1-766087270844
   bucket_path: leadbook-app
   edge: true
