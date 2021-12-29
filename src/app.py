@@ -10,6 +10,7 @@ import requests
 import numpy as np
 
 from env import EnvironmentVar
+from cleaning import CleaningData
 
 
 app = Flask(__name__)
@@ -41,27 +42,41 @@ def inst():
     year = file_name[-8:-4]
 
 
-    def cleaning_function(input_):   
-        if type(input_) == float or type(input_) == int:
-            output = input_
-        elif input_.strip() == '-':
-            output = np.nan
-        else:
-            output = input_
-        return output
+    # def cleaning_function(input_):   
+    #     if type(input_) == float or type(input_) == int:
+    #         output = input_
+    #     elif input_.strip() == '-':
+    #         output = np.nan
+    #     else:
+    #         output = input_
+    #     return output
 
-    def cleaning_more_than(input_):
-        if type(input_) == float or type(input_) == int:
-            output = input_
-        elif input_.strip() == "> 1000":
-            output = np.nan
-        else:
-            output = input_
-        return output    
+    # def cleaning_more_than(input_):
+    #     if type(input_) == float or type(input_) == int:
+    #         output = input_
+    #     elif input_.strip() == "> 1000":
+    #         output = np.nan
+    #     else:
+    #         output = input_
+    #     return output    
+
+    # for i in range(len(df.columns)):
+    #     df.iloc[:,i] = df.iloc[:,i].apply(cleaning_function)
+    #     df.iloc[:,i] = df.iloc[:,i].apply(cleaning_more_than)
+
+
+    clean = CleaningData()
+
 
     for i in range(len(df.columns)):
-        df.iloc[:,i] = df.iloc[:,i].apply(cleaning_function)
-        df.iloc[:,i] = df.iloc[:,i].apply(cleaning_more_than)
+        df.iloc[:,i] = df.iloc[:,i].apply(clean.cleaning_function)
+        df.iloc[:,i] = df.iloc[:,i].apply(clean.cleaning_more_than)
+
+
+
+
+
+
 
 
 
