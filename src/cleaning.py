@@ -2,7 +2,7 @@ import numpy as np
 
 class CleaningData(): 
 
-    def cleaning_function(input_):   
+    def cleaning_function(self, input_):   
         if type(input_) == float or type(input_) == int:
             output = input_
         elif input_.strip() == '-':
@@ -11,7 +11,7 @@ class CleaningData():
             output = input_
         return output
 
-    def cleaning_more_than(input_):
+    def cleaning_more_than(self, input_):
         if type(input_) == float or type(input_) == int:
             output = input_
         elif input_.strip() == "> 1000":
