@@ -7,22 +7,27 @@ def test_index(app, client):
     assert expected == res.get_data(as_text=True)
 
 
-def test_upload(app, client):
+# def test_upload(app, client):
 
 
-    headers = {
-        'Content-Type': 'application/json'
-    }
+#     headers = {
+#         'Content-Type': 'application/json'
+#     }
 
     
-    data = {"bucket": "senz-testing", "file": "Leadbook/data-2018.txt"}
-    url = '/insert'
+#     data = {"bucket": "senz-testing", "file": "Leadbook/data-2018.txt"}
+#     url = '/insert'
 
-    res = client.post(url, data=json.dumps(data), headers=headers)
+#     res = client.post(url, data=json.dumps(data), headers=headers)
 
-    assert res.status_code == 200
-    expected = {'result' : "success"}
-    assert expected == json.loads(res.get_data(as_text=True))
+#     assert res.status_code == 200
+#     expected = {'result' : "success"}
+#     assert expected == json.loads(res.get_data(as_text=True))
+
+
+
+
+
 
 
     
