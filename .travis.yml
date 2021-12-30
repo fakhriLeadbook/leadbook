@@ -27,5 +27,41 @@ deploy:
   edge: true
   on:
     branch: main
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
+  access_key_id: $aws_access_key_id
+  secret_access_key: $aws_secret_access_key
+
+
+
+
+# # Yang Benar
+# sudo: required
+# services:
+#   - docker
+
+# language: python
+
+# before_install:
+#   - docker build -t senzdamsik/http-api ./src
+
+# script:
+#   - docker run -e CI=true senzdamsik/http-api python -m pytest   
+
+# after_success:
+
+#   - docker build -t senzdamsik/http-api ./src
+#   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin 
+#   - docker push senzdamsik/http-api
+
+
+# deploy:
+#   provider: elasticbeanstalk
+#   region: ap-southeast-1
+#   app: leadbook-app-multi-move
+#   env: Leadbookappmultimove-env
+#   bucket_name: elasticbeanstalk-ap-southeast-1-766087270844
+#   bucket_path: leadbook-app
+#   edge: true
+#   on:
+#     branch: main
+#   access_key_id: $AWS_ACCESS_KEY
+#   secret_access_key: $AWS_SECRET_KEY
