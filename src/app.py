@@ -43,7 +43,7 @@ def inst():
 
 @app.route('/test')
 def test():
-    return "Works!"
+    return "Works Homepage"
 
 
 if __name__ == '__main__':
