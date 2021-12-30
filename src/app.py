@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "Leadbook Test 2"
+    return "Leadbook Test"
 
 
 @app.route('/insert', methods=['POST'])
@@ -39,11 +39,6 @@ def inst():
 
 
     return jsonify({'result' : "success"})
-
-
-@app.route('/test')
-def test():
-    return "Works!"
 
 
 if __name__ == '__main__':
