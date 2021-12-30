@@ -12,8 +12,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    # return "Leadbook Test 2"
-    return jsonify({'result' : "success"})
+    return "Leadbook Test 2"
 
 
 @app.route('/insert', methods=['POST'])
