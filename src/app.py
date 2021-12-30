@@ -21,10 +21,6 @@ def inst():
 
     env_ = EnvironmentVar()
 
-    # s3 = boto3.resource('s3',
-    #                     aws_access_key_id="fmMxoXX85uIji5iJmwQsGa64ZJwPCSWN9hyPiqyG",
-    #                     aws_secret_access_key="mongodb+srv://fakhri:leadbookmongopassword123@cluster0.bnnky.mongodb.net/leadbook_db?retryWrites=true&w=majority")
-
     s3 = boto3.resource('s3',
                         aws_access_key_id=env_.aws_access_key_id,
                         aws_secret_access_key=env_.aws_secret_access_key)
