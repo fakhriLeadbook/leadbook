@@ -5,20 +5,18 @@ import boto3
 from env import EnvironmentVar
 from cleaning import CleaningData
 from processing import ProcessingData
+from werkzeug.exceptions import HTTPException
 
 
 app = Flask(__name__)
 
-@app.errorhandler(APIError)
-def handle_exception(err):
-    """Return custom JSON when APIError or its children are raised"""
-    response = {"error": err.description, "message": ""}
-    if len(err.args) > 0:
-        response["message"] = err.args[0]
-    # Add some logging so that we can monitor different types of errors 
-    app.logger.error(f"{err.description}: {response['message']}")
-    return jsonify(response), err.code
 
+@app.errorhandler(Exception)
+def handle_error(e):
+    code = 500
+    if isinstance(e, HTTPException):
+        code = e.code
+    return jsonify(error=str(e)), code
 
 
 @app.route('/')
