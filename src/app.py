@@ -34,14 +34,14 @@ def inst():
     df = pd.read_csv(obj['Body'], sep="\t")
      
 
-    # clean = CleaningData()
+    clean = CleaningData()
 
-    # for i in range(len(df.columns)):
-    #     df.iloc[:,i] = df.iloc[:,i].apply(clean.cleaning_function)
-    #     df.iloc[:,i] = df.iloc[:,i].apply(clean.cleaning_more_than)
+    for i in range(len(df.columns)):
+        df.iloc[:,i] = df.iloc[:,i].apply(clean.cleaning_function)
+        df.iloc[:,i] = df.iloc[:,i].apply(clean.cleaning_more_than)
 
-    # process = ProcessingData(df)
-    # process.getting_duckduckgo_api()
+    process = ProcessingData(df)
+    process.getting_duckduckgo_api()
 
 
     return jsonify({'result' : "success"})
