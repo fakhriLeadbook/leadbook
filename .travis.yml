@@ -3,27 +3,18 @@ services:
   - docker
 
 language: python
-  
 
 before_install:
-# Di sini kita akan melakukan testing untuk Client. Kita bisa juga melakukan testing utk Worker, Server dll kalo mau.
-
   - docker build -t senzdamsik/http-api ./src
 
 script:
   - docker run -e CI=true senzdamsik/http-api python -m pytest -v   
 
 after_success:
-  # Setelah Travis selesai melakukan testing, selanjutnya kita suruh Travis membuat image dan mengirimkannya
-  # ke Dockerhub (agar bisa ditarik oleh AWS Beanstalk).
 
   - docker build -t senzdamsik/http-api ./src
-
-  # Log in to the docker CLI
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin # id= senzdamsik, pass: mu...
-  # Take those images and push them to docker hub
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin 
   - docker push senzdamsik/http-api
-
 
 
 deploy:
