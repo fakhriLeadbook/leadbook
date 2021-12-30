@@ -10,17 +10,6 @@ from processing import ProcessingData
 app = Flask(__name__)
 
 
-# @app.errorhandler(APIError)
-# def handle_exception(err):
-#     """Return custom JSON when APIError or its children are raised"""
-#     response = {"error": err.description, "message": ""}
-#     if len(err.args) > 0:
-#         response["message"] = err.args[0]
-#     # Add some logging so that we can monitor different types of errors 
-#     app.logger.error(f"{err.description}: {response['message']}")
-#     return jsonify(response), err.code
-
-
 
 @app.route('/')
 def index():
@@ -40,14 +29,14 @@ def inst():
     df = pd.read_csv(obj['Body'], sep="\t")
      
 
-    clean = CleaningData()
+    # clean = CleaningData()
 
-    for i in range(len(df.columns)):
-        df.iloc[:,i] = df.iloc[:,i].apply(clean.cleaning_function)
-        df.iloc[:,i] = df.iloc[:,i].apply(clean.cleaning_more_than)
+    # for i in range(len(df.columns)):
+    #     df.iloc[:,i] = df.iloc[:,i].apply(clean.cleaning_function)
+    #     df.iloc[:,i] = df.iloc[:,i].apply(clean.cleaning_more_than)
 
-    process = ProcessingData(df)
-    process.getting_duckduckgo_api()
+    # process = ProcessingData(df)
+    # process.getting_duckduckgo_api()
 
 
     return jsonify({'result' : "success"})
