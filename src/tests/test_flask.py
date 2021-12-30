@@ -8,11 +8,10 @@ def test_index(app, client):
 
 
 def test_upload(app, client):
-    
-    mimetype = 'application/json'
+
+
     headers = {
-        'Content-Type': mimetype,
-        'Accept': mimetype
+        'Content-Type': 'application/json'
     }
 
     
@@ -21,10 +20,28 @@ def test_upload(app, client):
 
     res = client.post(url, data=json.dumps(data), headers=headers)
 
-    assert res.content_type == mimetype
     assert res.status_code == 200
     expected = {'result' : "success"}
     assert expected == json.loads(res.get_data(as_text=True))
+
+
+
+    # mimetype = 'application/json'
+    # headers = {
+    #     'Content-Type': mimetype,
+    #     'Accept': mimetype
+    # }
+
+    
+    # data = {"bucket": "senz-testing", "file": "Leadbook/data-2018.txt"}
+    # url = '/insert'
+
+    # res = client.post(url, data=json.dumps(data), headers=headers)
+
+    # assert res.content_type == mimetype
+    # assert res.status_code == 200
+    # expected = {'result' : "success"}
+    # assert expected == json.loads(res.get_data(as_text=True))
 
 
     
